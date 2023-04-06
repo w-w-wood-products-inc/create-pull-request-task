@@ -1,0 +1,43 @@
+{
+    "manifestVersion": 1,
+    "id": "create-pull-request-ww",
+    "name": "Create Pull Request",
+    "icons": {
+        "default": "icon.png"
+    },
+    "version": "{{version}}",
+    "description": "This extension contains a custom build and release task.",
+    "publisher": "WWWoodProducts",
+    "public": false,
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "content": {
+        "details": {
+            "path": "README.md"
+        }
+    },
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "create-pull-request",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "create-pull-request"
+            }
+        }
+    ],
+    "files": [
+        {
+            "path": "create-pull-request",
+            "addressable": true
+        }
+    ]
+}

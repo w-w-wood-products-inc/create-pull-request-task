@@ -1,0 +1,55 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+    "id": "7b1e733d-26fb-437f-9c40-78aaa617b4c2",
+    "name": "create-pull-request",
+    "friendlyName": "Create Pull Request",
+    "description": "Creates a pull request in an Azure Release pipeline",
+    "helpMarkDown": "",
+    "category": "Utility",
+    "author": "Ethan P. Reker",
+    "version": {
+        "Major": "{{major}}",
+        "Minor": "{{minor}}",
+        "Patch": "{{patch}}"
+    },
+    "instanceNameFormat": "Create Pull Request $(sourcebranchstring)",
+    "inputs": [
+        {
+            "name": "patstring",
+            "type": "string",
+            "label": "Personal Access Token",
+            "defaultValue": "$(PullRequestAccessToken)",
+            "required": true,
+            "helpMarkDown": "Azure DevOps personal access token used for making the API request to create the pull request.  Should be scoped to only have repository permissions."
+        },
+        {
+            "name": "sourcebranchstring",
+            "type": "string",
+            "label": "Source Branch",
+            "defaultValue": "development",
+            "required": true,
+            "helpMarkDown": "The branch that will be merged into the target branch (refs/heads/development, refs/heads/iteration/1.2.4, etc)."
+        },
+        {
+            "name": "destinationbranchstring",
+            "type": "string",
+            "label": "Destination Branch",
+            "defaultValue": "master",
+            "required": true,
+            "helpMarkDown": "The branch to merge the destination branch into. Typically refs/heads/master or refs/heads/main."
+        },
+        {
+            "name": "autoapproveboolean",
+            "type": "boolean",
+            "label": "Auto-approve and Complete",
+            "defaultValue": "true",
+            "required": true,
+            "helpMarkDown": "If enabled, the Pull Request will be set to auto-complete and then will be approved on behalf of the owner of the access token"
+        }
+    ],
+    "execution": {
+        "Node": {
+            "target": "main.js"
+        }
+    }
+}

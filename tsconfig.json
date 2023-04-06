@@ -1,0 +1,25 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "noEmitOnError": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "outDir": "dist",
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true,
+        "target": "es2015",
+        "lib": [
+            "es2015"
+        ],
+        "types": [
+            "jest",
+            "node"
+        ],
+        "typeRoots": ["./src/types", "node_modules/@types"],
+    },
+    "include": [
+        "src/**/*.ts",
+        "tests/**/*.ts"
+    ]
+}
